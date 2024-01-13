@@ -41,10 +41,13 @@ function fetchWeatherData(lat, lon) {
 
 // Function to update UI with weather data
 function updateWeatherInfo(data) {
-    // Update the UI elements with the data received
-    // For example:
     document.getElementById('temperature-value').textContent = data.temp + '°C';
-    // Add more UI updates as per your HTML structure
+    document.getElementById('location-value').textContent = data.name;
+    document.getElementById('display-lon').textContent = data.lon;
+    document.getElementById('display-lat').textContent = data.lat;
+    document.getElementById('time-value').textContent = data.time;
+    document.getElementById('date-value').textContent = data.date;
+    document.getElementById('weather-value').textContent = data.weather;
 }
 
 // Event listener for the form submission

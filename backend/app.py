@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -15,16 +16,21 @@ def get_weather():
     
     response = requests.get(url)
     data = response.json()
+    print(data)  # Add this line to debug
+    
     
     if response.status_code == 200:
-        # Assuming you're extracting temperature, lat, lon, and location name
-        weather_data = {
-            'temp': data['current']['temp'],
-            'lat': data['lat'],
-            'lon': data['lon'],
-            'name': data['timezone']  # or other field representing location name
-        }
-        return jsonify(weather_data)
+       current_data = data['current']
+       weather_data = {
+           'temp': current_data['temp'],
+           'lat': data['lat'],
+           'lon': data['lon'],
+           'name': data['timezone'],  # Using timezone as the location name
+           'time': datetime.now().strftime("%H:%M:%S"),  # Current server time
+           'date': datetime.now().strftime("%Y-%m-%d"),  # Current server date
+           'weather': current_data['weather'][0]['main']  # Current weather condition
+       }
+       return jsonify(weather_data)
     else:
         return jsonify({'error': 'Failed to fetch data'}), response.status_code
 
