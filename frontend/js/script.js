@@ -21,10 +21,30 @@ function geocodeLocation(location) {
                 map: map,
                 position: results[0].geometry.location
             });
+            // Fetch weather data for the geocoded location
+            fetchWeatherData(results[0].geometry.location.lat(), results[0].geometry.location.lng());
         } else {
             alert('Geocode was not successful for the following reason: ' + status);
         }
     });
+}
+
+// Function to fetch weather data from Flask backend
+function fetchWeatherData(lat, lon) {
+    fetch(`http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`)
+        .then(response => response.json())
+        .then(data => {
+            updateWeatherInfo(data); // Update UI with weather data
+        })
+        .catch(error => console.error('Error fetching weather data:', error));
+}
+
+// Function to update UI with weather data
+function updateWeatherInfo(data) {
+    // Update the UI elements with the data received
+    // For example:
+    document.getElementById('temperature-value').textContent = data.temp + '°C';
+    // Add more UI updates as per your HTML structure
 }
 
 // Event listener for the form submission

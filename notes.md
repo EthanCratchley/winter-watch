@@ -7,7 +7,7 @@
 - Backend: Python, Flask
 - Version Control: Git
 - IDE: VS Code
-1. API Usage: OpenWeatherMap
+1. API Usage: OpenWeatherMap, Google Maps
 
 ## Front End
 1. Basic Layout
@@ -25,7 +25,7 @@
 ## Integration
 1. Combine Front-End and Back-End
 2. Testing
-3. Final Touches and Optimization (Add nNew Features if 2.5+ Hours Extra Time)
+3. Final Touches and Optimization (Add New Features if 2.5+ Hours Extra Time)
 4. Setup on Github Pages (possible website url)
 
 ## Documentation
