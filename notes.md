@@ -1,9 +1,13 @@
-# Winter Watch 
+# Winter Watch
 
 ## Planning
-1. MVP: 
-2. API Usage:
-3. Languages and Frameworks:
+1. Minimum Viable Product (MVP): Includes Basic Weather Tracking, Winter Specific Features, UI/UX
+2. Languages and Frameworks:
+- Frontend: HTML, CSS, JS
+- Backend: Python, Flask
+- Version Control: Git
+- IDE: VS Code
+1. API Usage: OpenWeatherMap
 
 ## Front End
 1. Basic Layout
@@ -31,7 +35,6 @@
 ## Powerpoint, Script, and Pitch, Question Responses
 
 # Stay Focused on the MVP: Don’t get sidetracked by features that can be added later!
-
 
 ### Features
 
