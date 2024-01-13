@@ -20,17 +20,20 @@ def get_weather():
     
     
     if response.status_code == 200:
-       current_data = data['current']
-       weather_data = {
-           'temp': current_data['temp'],
-           'lat': data['lat'],
-           'lon': data['lon'],
-           'name': data['timezone'],  # Using timezone as the location name
-           'time': datetime.now().strftime("%H:%M:%S"),  # Current server time
-           'date': datetime.now().strftime("%Y-%m-%d"),  # Current server date
-           'weather': current_data['weather'][0]['main']  # Current weather condition
-       }
-       return jsonify(weather_data)
+        current_data = data['current']
+        weather_data = {
+            'temp': current_data['temp'],
+            'lat': data['lat'],
+            'lon': data['lon'],
+            'name': data['timezone'],  # Using timezone as the location name
+            'time': datetime.now().strftime("%H:%M:%S"),  # Current server time
+            'date': datetime.now().strftime("%Y-%m-%d"),  # Current server date
+            'weather': current_data['weather'][0]['main'],  # Current weather condition
+            'uv_index': current_data['uvi'],
+            'visibility': current_data['visibility'],
+            'ice_warning': 'Yes' if current_data['temp'] < 0 else 'No'
+    }
+        return jsonify(weather_data)
     else:
         return jsonify({'error': 'Failed to fetch data'}), response.status_code
 

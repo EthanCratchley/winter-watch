@@ -48,6 +48,9 @@ function updateWeatherInfo(data) {
     document.getElementById('time-value').textContent = data.time;
     document.getElementById('date-value').textContent = data.date;
     document.getElementById('weather-value').textContent = data.weather;
+    document.getElementById('uv-index-value').textContent = data.uv_index;
+    document.getElementById('visibility-rating-value').textContent = `${data.visibility} meters`;
+    document.getElementById('ice-warning-value').textContent = data.ice_warning;
 }
 
 // Event listener for the form submission
