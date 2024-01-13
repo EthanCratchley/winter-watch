@@ -41,7 +41,7 @@ function fetchWeatherData(lat, lon) {
 
 // Function to update UI with weather data
 function updateWeatherInfo(data) {
-    document.getElementById('temperature-value').textContent = data.temp + '°C';
+    document.getElementById('temperature-value').textContent = data.temp;
     document.getElementById('location-value').textContent = data.name;
     document.getElementById('display-lon').textContent = data.lon;
     document.getElementById('display-lat').textContent = data.lat;
@@ -51,6 +51,7 @@ function updateWeatherInfo(data) {
     document.getElementById('uv-index-value').textContent = data.uv_index;
     document.getElementById('visibility-rating-value').textContent = `${data.visibility} meters`;
     document.getElementById('ice-warning-value').textContent = data.ice_warning;
+    document.getElementById('last-snow-value').textContent = data.last_snow;
 }
 
 // Event listener for the form submission
