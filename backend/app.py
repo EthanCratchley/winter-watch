@@ -7,6 +7,24 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})  # This allows all origins for all routes
 
+def calculate_safety_score(weather_data):
+    score = 100
+    score -= max(0, (30 - weather_data['temp']) * 2)  # Subtract more points for lower temperatures
+    score -= max(0, (10000 - weather_data['visibility']) // 1000)  # Points for lower visibility
+    score -= max(0, weather_data['uv_index'] * 2)  # UV index factor
+    if weather_data['weather'].lower() in ['rain', 'snow', 'thunderstorm']:
+        score -= 20  # Bad weather conditions
+    return max(0, int(score))  # Convert to integer and ensure score is not negative
+
+def calculate_frostbite_indicator(weather_data):
+    temp = weather_data['temp']
+    wind_speed = weather_data.get('wind_speed', 0)  # Add wind_speed to weather_data if not present
+    if temp < 0 and wind_speed > 20:
+        return 'High'
+    elif temp < 0:
+        return 'Moderate'
+    return 'Low'
+
 @app.route('/weather', methods=['GET'])
 def get_weather():
     latitude = request.args.get('lat')
@@ -45,6 +63,9 @@ def get_weather():
             'ice_warning': 'Yes' if current_data['temp'] < 0 else 'No',
             'last_snow': last_snow if last_snow else "No recent snow"
         }
+        weather_data['safety_score'] = calculate_safety_score(weather_data)
+        weather_data['frostbite_risk'] = calculate_frostbite_indicator(weather_data)
+
         return jsonify(weather_data)
     else:
         return jsonify({'error': 'Failed to fetch data'}), response.status_code
