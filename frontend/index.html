@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href=".png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Watch</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet"> <!-- Raleway Font -->
+</head>
+<body>
+    <header>
+        <h1>Winter Watch</h1>
+        <nav>
+            <!-- Navigation links if needed -->
+        </nav>
+    </header>
+
+    <main>
+        <section id="weather-search">
+            <input type="text" id="location-input" placeholder="Enter a location">
+            <button id="search-button">Search</button>
+        </section>
+
+        <section id="map">
+            <!-- Map will be displayed here -->
+        </section>
+        <section id="safety-tips">
+            <h2>Safety Tips</h2>
+            <p><!-- Dynamic safety tips related to weather conditions --></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Winter Watch. All rights reserved.</p>
+    </footer>
+    
+    <script src="js/script.js"></script> 
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=key&callback=initMap">
+</script>
+</body>
+</html>
