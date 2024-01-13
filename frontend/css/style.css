@@ -23,24 +23,43 @@ header {
     background-color: #0f3460; /* Slightly different blue for contrast */
 }
 
-.search-area {
+.search {
+    width: 100%;
+    max-width: 600px; /* Set a max-width for the search bar */
     display: flex;
+    align-items: center;
+    padding: var(--padding);
+    border-radius: 28px;
+    background: #16213e; /* Darker background for the search bar */
+    margin-top: 20px; /* Adds padding from the top */
+    transition: background 0.25s;
 }
 
-.search-area input[type="text"] {
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-    border: 1px solid #e6e6e6; /* Light border for input */
-    background-color: transparent;
-    color: white;
+.search-icon {
+    color: white; /* Color for the search icon */
+    padding: 0 var(--padding); /* Padding around the icon */
 }
 
-.search-area button {
-    padding: 0.5rem;
-    background-color: #e94560; /* Contrast color for button */
-    color: white;
+.search-input {
+    flex-grow: 1; /* Allow input to grow and fill space */
+    font-size: 16px;
+    color: white; /* Text color for the input */
+    margin-left: var(--padding);
+    outline: none;
     border: none;
-    cursor: pointer;
+    background: transparent;
+}
+
+.search:focus-within {
+    background: #0f3460; /* Slightly lighter background on focus */
+}
+
+.search-input::placeholder {
+    color: #e6e6e6; /* Lighter text color for placeholder */
+}
+
+:root {
+    --padding: 14px;
 }
 
 .location-info {
@@ -54,18 +73,46 @@ main {
     flex-direction: column;
 }
 
+.map-and-info {
+    display: flex;
+    align-items: start; /* Align items at the start of the flex container */
+    padding: 1rem;
+}
+
 #map {
-    flex-grow: 2; /* Adjust this value to change map size */
-    width: 40%; /* Adjust the width as needed */
-    margin: 0 auto; /* This centers the map in the parent container */
-    height: 150px; /* You can adjust the height as needed */
+    flex-grow: 1; /* Adjust this value to change map size */
+    width: 20%; /* Adjust the width as needed */
+    height: 400px; /* You can adjust the height as needed */
     background-color: #16213e; /* Background color for map area */
 }
 
-#weather-display, #safety-tips {
+#standard-info {
+    width: 20%; /* Adjust as needed */
+    background-color: #16213e; /* Theme color */
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-left: 1rem; /* Spacing from the map */
+}
+
+#safety-title {
     background-color: #0f3460; /* Consistent theme color */
     padding: 1rem; /* Added padding for spacing */
-    border-radius: 8px; /* Rounded corners for aesthetics */
+}
+
+#safety-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-gap: 1rem;
+    background-color: #0f3460; /* Consistent theme color */
+    padding: 1rem; /* Added padding for spacing */
+}
+
+.feature {
+    background-color: #16213e; /* Darker for contrast */
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
 }
 
 footer {

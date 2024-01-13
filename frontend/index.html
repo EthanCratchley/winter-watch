@@ -6,38 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winter Watch</title>
     <link rel="stylesheet" href="css/style.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet"> <!-- Raleway Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Winter Watch</h1>
-        <nav>
-            <!-- Navigation links if needed -->
-        </nav>
     </header>
-
     <main>
-        <section id="weather-search">
-            <input type="text" id="location-input" placeholder="Enter a location">
-            <button id="search-button">Search</button>
-        </section>
-
-        <section id="map">
-            <!-- Map will be displayed here -->
-        </section>
-        <section id="safety-tips">
-            <h2>Safety Tips</h2>
-            <p><!-- Dynamic safety tips related to weather conditions --></p>
-        </section>
+        <form id="search-form">
+            <div class="search">
+                <span class="search-icon material-symbols-outlined">search</span>
+                <input class="search-input" type="search" id="location-input" placeholder="Search">
+            </div>
+        </form>
+        <div class="map-and-info">
+            <section id="map">
+                <!-- Map will be displayed here -->
+            </section>
+            <div id="standard-info">
+                <h2><u>Standard Information</u></h2>
+                <p id="location">Location: </p>
+                <p id="time">Time: </p>
+                <p id="date">Date: </p>
+                <p id="temperature">Temp: </p>
+                <p id="weather">Current Weather: </p>
+                <p id="coordinates">Long & Lat: </p>
+            </div>
+        </div>
+        <div id="safety-title">
+        <h2><u>Safety Information</u></h2>
+        </div>
+        <div id="safety-features">
+                <div class="feature">Safety Score: </div>
+                <div class="feature">Visibility Rating: </div>
+                <div class="feature">Ice Warning: </div>
+                <div class="feature">Snow Depth: </div>
+                <div class="feature">Road Surface Tempratures: </div>
+                <div class="feature">Frostbite Indicator: </div>
+                <div class="feature">UV Index: </div>
+                <div class="feature">Last Snow: </div>
+                <div class="feature">Emergency Resources: </div>
+        </div>        
     </main>
     <footer>
         <p>&copy; 2024 Winter Watch. All rights reserved.</p>
     </footer>
-    
     <script src="js/script.js"></script> 
-
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=key&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=KEY&callback=initMap">
 </script>
 </body>
 </html>
