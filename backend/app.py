@@ -2,10 +2,14 @@ import requests
 from datetime import datetime
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})  # This allows all origins for all routes
+
 
 def calculate_safety_score(weather_data):
     score = 100
@@ -29,14 +33,13 @@ def calculate_frostbite_indicator(weather_data):
 def get_weather():
     latitude = request.args.get('lat')
     longitude = request.args.get('lon')
-    api_key = '3c6ecea3f0340c19cb44075ac83a0560'  # Replace with your actual API key
+    api_key = os.environ.get('OPENWEATHERMAP_API_KEY')
     url = f"https://api.openweathermap.org/data/3.0/onecall?lat={latitude}&lon={longitude}&appid={api_key}&units=metric"
-    
+
     response = requests.get(url)
     data = response.json()
     #print(data)  # Add this line to debug
-    
-    
+
     if response.status_code == 200:
         current_data = data['current']
         hourly_data = data.get('hourly', [])
