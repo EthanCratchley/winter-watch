@@ -4,12 +4,12 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 from dotenv import load_dotenv
+from flask import send_from_directory
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})  # This allows all origins for all routes
-
 
 def calculate_safety_score(weather_data):
     score = 100
@@ -72,6 +72,15 @@ def get_weather():
         return jsonify(weather_data)
     else:
         return jsonify({'error': 'Failed to fetch data'}), response.status_code
+    
+@app.route('/')
+def index():
+    return 'Welcome to Winter Watch!'  # Replace this with your desired response
+    
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 if __name__ == '__main__':
     app.run(debug=True)
