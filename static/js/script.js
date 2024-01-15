@@ -31,14 +31,16 @@ function geocodeLocation(location) {
 
 // Function to fetch weather data from Flask backend
 function fetchWeatherData(lat, lon) {
-    fetch(`http://127.0.0.1:5000/weather?lat=${lat}&lon=${lon}`)
+    // Use window.location.origin to dynamically get the current origin
+    const url = `${window.location.origin}/weather?lat=${lat}&lon=${lon}`;
+
+    fetch(url)
         .then(response => response.json())
         .then(data => {
             updateWeatherInfo(data); // Update UI with weather data
         })
         .catch(error => console.error('Error fetching weather data:', error));
 }
-
 // Function to update UI with weather data
 function updateWeatherInfo(data) {
     document.getElementById('temperature-value').textContent = data.temp;
