@@ -5,6 +5,7 @@ from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 from flask import send_from_directory
+from flask import render_template
 
 load_dotenv()
 
@@ -75,8 +76,8 @@ def get_weather():
     
 @app.route('/')
 def index():
-    return 'Welcome to Winter Watch!'  # Replace this with your desired response
-    
+    return render_template('index.html')    
+
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),

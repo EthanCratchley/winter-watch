@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="x-icon" href="wwlogo.png">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='wwlogo.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winter Watch</title>
-    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
 </head>
@@ -50,7 +50,7 @@
     <footer>
         <p>&copy; 2024 Winter Watch. All rights reserved.</p>
     </footer>
-    <script src="js/script.js"></script> 
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCncA262n0dyKHUjPrH0aeOfRCOym1yqH0&callback=initMap">
 </script>
