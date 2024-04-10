@@ -54,8 +54,8 @@ function updateWeatherInfo(data) {
     document.getElementById('visibility-rating-value').textContent = `${data.visibility} meters`;
     document.getElementById('ice-warning-value').textContent = data.ice_warning;
     document.getElementById('last-snow-value').textContent = data.last_snow;
-    document.getElementById('safety-score').textContent = `Safety Score: ${data.safety_score}`;
-    document.getElementById('frostbite-risk').textContent = `Frostbite Risk: ${data.frostbite_risk}`;
+    document.getElementById('safety-score').textContent =  data.safety_score;
+    document.getElementById('frostbite-risk').textContent = data.frostbite_risk;
 }
 
 // Event listener for the form submission
