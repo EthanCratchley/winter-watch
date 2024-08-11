@@ -1,9 +1,7 @@
-// Assume a global variable for the map is declared
 let map;
 
 // Function to initialize the map
 function initMap() {
-    // Set the default location to Toronto for example
     const defaultLocation = { lat: 43.65107, lng: -79.347015 };
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
@@ -31,13 +29,12 @@ function geocodeLocation(location) {
 
 // Function to fetch weather data from Flask backend
 function fetchWeatherData(lat, lon) {
-    // Use window.location.origin to dynamically get the current origin
     const url = `${window.location.origin}/weather?lat=${lat}&lon=${lon}`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            updateWeatherInfo(data); // Update UI with weather data
+            updateWeatherInfo(data); 
         })
         .catch(error => console.error('Error fetching weather data:', error));
 }
@@ -60,7 +57,7 @@ function updateWeatherInfo(data) {
 
 // Event listener for the form submission
 document.getElementById('search-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+    event.preventDefault(); 
     const location = document.getElementById('location-input').value;
-    geocodeLocation(location); // Call the function to update the map
+    geocodeLocation(location); 
 });
