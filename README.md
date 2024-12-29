@@ -76,3 +76,5 @@ As well as key safety information such as:
 
 # Made By
 *- Ethan Cratchley*
+
+*As of Dec 2024 most likely not maintained*
