@@ -5,7 +5,7 @@
 
 ## Purpose
 
-Winter Watch is a website that allows your experience in the winter and snow to be pleasent and safe.
+Winter Watch is a website that allows your experience in the winter and snow to be pleasent and safe
 
 ## Languages and Frameworks
 
